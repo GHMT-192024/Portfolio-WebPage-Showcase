@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manas' Portfolio</title>
+    <style>
+      /* Hidden by default */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .action-button {
+        /* Default styles */
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease; /* Smooth transitions */
+      }
+
+      .action-button:hover {
+        background-color: #3e8e41; /* Darker green on hover */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+      }
+
+      .action-button.red:hover {
+        background-color: #da190b; /* Darker red on hover */
+      }
+
+      .action-button.blue:hover {
+        background-color: #006080; /* Darker blue on hover */
+      }
+      .carousel-container {
+        width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .carousel-slide {
+        display: none; /* Hide all slides initially */
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: auto;
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .dot-container {
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="color: red">Navigation Menu</h2>
+    <ul class="nav-menu">
+      <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#projects">Projects</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+    <div id="home">
+      <h1 style="color: blue">
+        Hi I am Manas Tankala- A CMU TechBridge Student
+      </h1>
+      <p>
+        I have worked in retail for sometime and have also done 3 semesters in
+        community college studying Information Systems, but after the third
+        semester I decided to drop out becuase of its stress. Sooner or later I
+        found out about this coding bootcamp at CMU that can help us land a tech
+        job, and I found that as a good alternative. Once I started in this
+        bootcamp I have learnt 3 types of coding languages Python, JavaScript,
+        and HTML/CSS I am planning to use those skills with some help to become
+        a software engineer. My webpage has a projects section, home section,
+        skills section, contact section, and an image for carousel.
+      </p>
+    </div>
+    <div id="projects">
+      <div class="card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/IPhone_16_Pro_Vector.svg/220px-IPhone_16_Pro_Vector.svg.png"
+          width="500"
+          height="500"
+          alt="iPhone16Pro"
+          style="width: 20%"
+        />
+        <div class="container">
+          <h2><b>Manas Tankala</b></h2>
+          <p>CMU TechBridge Student & Web Portfolio Project MT</p>
+          <a href="https://github.com/GHMT-192024/Manas-Fave"
+            >Link to Project</a
+          >
+          <button id="openModal">Open Modal</button>
+
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          </div>
+          <button
+            class="action-button"
+            onclick="showAlert ('View Details clicked')"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="container">
+          <h2><b>Nike</b></h2>
+          <p>Project Swoosh</p>
+          <a
+            href="https://www.nike.com/?cp=81142676910_search_-Nike-o-458185766-1179777682250215-e-c&gclid=5dd2724a21381f8ddb701569d22d2e56&gclsrc=3p.ds&msclkid=5dd2724a21381f8ddb701569d22d2e56"
+            >Link to Project</a
+          >
+          <img
+            src="https://4.bp.blogspot.com/-BGYw9I05BVk/TiRdC7c0NzI/AAAAAAAAAiQ/1ebLElEEGCc/s1600/Nike_logo.jpg"
+            width="500"
+            height="500"
+            alt="Nike Logo"
+            style="width: 20%"
+          />
+
+          <button id="openModal2">Open Modal</button>
+
+          <div id="myModal2" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          </div>
+          <button
+            class="action-button"
+            onclick="showAlert ('View Details clicked')"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+      <img
+        src="https://images7.alphacoders.com/112/1120884.jpg"
+        width="500"
+        height="500"
+        alt="TMNT"
+        style="width: 20%"
+      />
+      <img
+        src="https://cdn.livekindly.co/wp-content/uploads/2018/09/dominos-pizza.jpg"
+        width="500"
+        height="500"
+        alt="Domino's Pizza"
+        style="width: 20%"
+      />
+    </div>
+
+    <h2>Content Carousel</h2>
+
+    <div class="carousel-container">
+      <div class="carousel-slide fade">
+        <img
+          src="https://th.bing.com/th/id/R.b72d44b59bfd6af9b479b950f19ffe5e?rik=704m4S%2bhI7FxHg&riu=http%3a%2f%2fwww.dragtimes.com%2fblog%2fwp-content%2fgallery%2ftesla-model-x-p90d-ludicrous%2f2016-Tesla-Model-X-P90D-Ludicrous-Deep-Blue-Metallic-008.JPG&ehk=U2Nh%2fcAJ5uyamhJ5kdQp5auV%2bKV7jAHM2bnFfOaWgUw%3d&risl=&pid=ImgRaw&r=0"
+          alt="Blue Tesla Model X"
+        />
+      </div>
+
+      <div class="carousel-slide fade">
+        <img
+          src="https://d2kde5ohu8qb21.cloudfront.net/files/6601b037d36ba80008c1d6a2/0034-tesla-cyber-truck-first-test-1920x1080-thumb.png?w=768&width=768&q=75&format=webp"
+          alt="Tesla CyberTruck"
+        />
+      </div>
+
+      <div class="carousel-slide fade">
+        <img
+          src="https://cdn.motor1.com/images/mgl/qpGBL/s1/tesla-model-3-gray-2.jpg"
+          alt="Tesla Model 3 Silver"
+        />
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+    <script>
+      document.body.style.backgroundColor = "yellow";
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("carousel-slide");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModal");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Get the modal
+      var modal2 = document.getElementById("myModal2");
+
+      // Get the button that opens the modal
+      var btn2 = document.getElementById("openModal2");
+
+      // Get the <span> element that closes the modal
+      var span2 = document.getElementsByClassName("close")[1];
+
+      // When the user clicks the button, open the modal
+      btn2.onclick = function () {
+        modal2.style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span2.onclick = function () {
+        modal2.style.display = "none";
+      };
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        } else if (event.target == modal2) {
+          modal2.style.display = "none";
+        }
+      };
+      function showAlert(message) {
+        alert(message);
+      }
+    </script>
+  </body>
+</html>
